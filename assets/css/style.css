@@ -15,3 +15,6 @@ body{
     background-color: black;
     border: 2px solid rgb(224, 91, 164);
 }
+#yellow-button{
+    color:#ffff;
+}
