@@ -1,0 +1,13 @@
+body{
+    background-image: url(../images/1898667.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.jumbotron{
+    background-color: #000000 !important;
+}
+.text-center{
+    font-family: 'Righteous', cursive;
+    color: rgb(224, 91, 164)
+}
