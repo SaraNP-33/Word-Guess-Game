@@ -10,12 +10,50 @@
     <title>90's Movies Hangman</title>
 </head>
 <body>
-  <script> src="assets/javascript/game.js"</script> 
+ 
   <div class ="container">
   <div class= "jumbotron">
 <h1 class="text-center">90's Movie Hangman</h1>
-<p class="text-center">Press Any key To Start playing!</p>
+<p class="text-center">Press Start To Play!</p>
+<div class ="text-center">
+  <a href="#" class="btn btn-success btn-lg">Start</a>
+  <a href="#" class="btn btn-warning btn-lg">Refresh</a>
+</div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div id="hints" class=".hint card-body text-center">
+            <img id="movie-image" class="img-fuild img-thumbnail" alt="Movie Image">
+            <p>Hint Hint:</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card">
+          <div id="game" class=".game card-body text-center">
+            <h3 id="gamestart" class="card-text">Let's See what You Got!</h3>
+           <p id="wordspaces" class="card-text">_ _ _ _ _ _</p>
+           <p id="guessesleft" class="card-text">Guesses Left:</p>
+           <p id="wins" class="card-text">Wins:</p>
+           <p id="losses" class="card-text">Losses:</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div id="letterbuttons" class=".letters card-body text-center">
+            <h4>Letters</h4>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </div>
 </div>
+<script src="assets/javascript/game.js"></script>
 </body>
 </html>
