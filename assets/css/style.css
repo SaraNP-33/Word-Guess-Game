@@ -6,6 +6,7 @@ body{
 
 .jumbotron{
     background-color: #000000 !important;
+    height: 230px !important;
 }
 .text-center{
     font-family: 'Righteous', cursive;
