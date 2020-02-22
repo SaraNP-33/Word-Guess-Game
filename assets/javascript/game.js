@@ -192,6 +192,7 @@ document.addEventListener("click", function reset() {
     losses = 0;
     gamewon = false;
     letterbuttons = false;
+    document.getElementById("#resetgame")= reset;
     document.querySelector("#letterbuttons").innerHTML = "";
     document.querySelector("#wrongletters").innerHTML = "";
     document.getElementById("wordspaces").textContent = '_ _ _ _ _ _'; 
