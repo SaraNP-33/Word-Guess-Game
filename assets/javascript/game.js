@@ -21,20 +21,20 @@ var letterbuttons=false;
 var gamewon =true;
 //create variables that will be used in the game
 
-var underscore;[]
-var dashes;
-var guessesleft;
-var wins=0;
-var losses=0;
-var lettersguessed;
-var letterbuttons;
-var chooseletter;
-var clickeditem;
+var underscore;[] 
+var dashes; //variable to work with the underscore
+var guessesleft; // to keep count of how many guesses is there left
+var wins=0; // keep track of score
+var losses=0; // keep track of score
+var lettersguessed; // keep track of letters that user gor right
+var letterbuttons; // to set up the alphabet buttons
+var chooseletter; // for when the user chooses a particular letter
+var clickeditem; // for when the user clicks an item;
 
 //variables for the game about to be played
-var randomword;
-var randomgame;
-var gameletters;
+var randomword; //whatever word is picked to be guesses
+var randomgame; // whatever game is set up;
+var gameletters;v // the specific letters that need to be gueesed.
 
 //variable toc check on the result (win or loose)
 
@@ -117,14 +117,14 @@ if(!gamewon){
 
 //create function that allows to track the letter choices and make the underscores change accorddingly
 function choice(letter) {
-    var letterFound=false;
+    var lettersguessed =false; 
 
     for(let i = 0; i < blanks; i++){
         if(gameletters[i] === letter){
-            letterFound = true;
+            lettersguessed = true;
         }
     }
-    if(letterFound){
+    if(lettersguessed){
 
         for (let i = 0; i < blanks; i++){
             if (underscores[i] === " "){
@@ -135,7 +135,7 @@ function choice(letter) {
         }
 
         for(let i = 0; i < blanks; i ++) {
-            if(gameLetters[i] === letter){
+            if(gameLetters[i] === letters){
                 underscores[i] = letters;
                 document.getElementById("wordspaces").innerHTML = underscores.join(' ');
                 clickeditem.style.visibility = "hidden";
@@ -150,7 +150,7 @@ function choice(letter) {
     
 };
 
-//create function that moderates the results - win or lose:
+//create function that moderates the results - win or lose with alerts for each case
 
 function gamecheck(){
 
@@ -194,8 +194,8 @@ document.addEventListener("click", function reset() {
     gamewon = false;
     letterbuttons = false;
     document.getElementById("#resetgame")= reset;
-    document.querySelector("#letterbuttons").innerHTML = "";
-    document.querySelector("#wrongletters").innerHTML = "";
+    document.querySelector("letterbuttons").innerHTML = "";
+    document.querySelector("wrongletters").innerHTML = "";
     document.getElementById("wordspaces").textContent = '_ _ _ _ _ _'; 
     document.getElementById("guessesleft").textContent = `Guesses Left: ${guessesLeft}`;
     document.getElementById("movie-image").src = "";
