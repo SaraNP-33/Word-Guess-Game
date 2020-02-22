@@ -16,17 +16,19 @@
 <h1 class="text-center">90's Movie Hangman</h1>
 <p class="text-center">Press Start To Play!</p>
 <div class ="text-center">
-  <a href="#" class="btn btn-success btn-lg">Start</a>
-  <a href="#" id="yellow-button"class="btn btn-warning btn-lg">Refresh</a>
+  <a href="#Startgame" class="btn btn-success btn-lg">Start</a>
+  <a href="#resetgame" id="yellow-button"class="btn btn-warning btn-lg">Refresh</a>
 </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <div class="card">
-          <div id="hints" class=".hint card-body text-center">
+          <div id="clues" class=".hint card-title text-center">
+            <div id="hintarea" class=".hintarea card-body">
             <img id="movie-image" class="img-fuild img-thumbnail" alt="Movie Image">
-            <p>Hint Hint:</p>
+            <p id="hints">Hint Hint:</p>
+          </div>
           </div>
         </div>
       </div>
@@ -44,15 +46,23 @@
       </div>
       <div class="col-md-4">
         <div class="card">
-          <div id="letterbuttons" class=".letters card-body text-center">
+          <div id="letter" class=".letters card-title text-center">
             <h4>Letters</h4>
+            <div id="letterbuttons" class=".buttons card-body"></div>
+          </div>
+        
+            <div class="card">
+             
+              <div id="letters" class=".letters card-title text-center">
+                <h4>Wrong Letters</h4>
+                <div id="wrongletters" class=".buttons card-body"></div>
           </div>
         </div>
+      
       </div>
 
-
     </div>
-  </div>
+  
 </div>
 <script src="assets/javascript/game.js"></script>
 </body>

@@ -19,3 +19,15 @@ body{
 #yellow-button{
     color:#ffff;
 }
+.button{
+    color:#ffff;
+    background-color:#000000;
+    border: 2 px solid rgb(224, 91, 164);
+    text-align: center;
+    font-size:5rem;
+    font-family:'Righteous', cursive;
+    width:20px;
+    height:20px;
+    padding:5px;
+
+}
