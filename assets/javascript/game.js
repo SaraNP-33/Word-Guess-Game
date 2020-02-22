@@ -6,6 +6,7 @@ var wordlist=["PULP FICTION", "BIG LEBOWSKI", "FIGHT CLUB", "PRETTY WOMAN","TITA
             
             
 // Hints to be used in each guess attemp for the specific word. 
+//still missing this part
 
 var hints =[{
 
@@ -82,7 +83,7 @@ document.getElementById("wins").textContent = wins;
 document.getElementById("losses").textContent =losses;
 
 //to put the pictures and the hints up in this docuemnt and link them to the right word.
-
+//still missing this part!
 
 letterbuttons=true;
 document.getElementById("letterbuttons")=letterbuttons;
