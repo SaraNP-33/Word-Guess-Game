@@ -48,13 +48,17 @@ var result;
 
 function gameStart() {
     console.log("click")
+   
     randomword= wordlist[Math.floor(Math.random()* wordlist.length)];
     console.log (randomword);
 
-    randomgame=wordlist[randomword];
-    gameletters= randomgame.split(' ');
-    guessesleft=randomgame.length;
-    dashes= randomgame.length;
+    // randomgame=wordlist[randomword];
+    gameletters= randomword.split(' ');
+    console.log(gameletters);
+    
+    guessesleft=randomword.length;
+    console.log(guessesleft)
+    dashes= randomword.length;
 
     if(guessesleft<10){
         guessesleft=9;
@@ -66,11 +70,12 @@ function gameStart() {
     else {
         underscore.push("_");
     }
+    console.log(gameletters);
+console.log (underscore);
     abc();
 }
 //console.log the info of the game:
-console.log(gameletters);
-console.log (underscore);
+
 
 
 // Now I connect  the variables to the HTML file
