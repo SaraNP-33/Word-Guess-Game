@@ -14,6 +14,8 @@ var hints =[{
 }
 
 ]
+//create variables that will get the Id's from html
+var startGame = document.getElementById("#startgame");
 
 //create an array with the alphabet letters and variables to generate buttons
 var letters=["A", "B", "C", "D", "F", "G","H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];            
@@ -27,14 +29,14 @@ var guessesleft; // to keep count of how many guesses is there left
 var wins=0; // keep track of score
 var losses=0; // keep track of score
 var lettersguessed; // keep track of letters that user gor right
-var letterbuttons; // to set up the alphabet buttons
+var letterbuttons= document.getElementById("letterbuttons"); // to set up the alphabet buttons
 var chooseletter; // for when the user chooses a particular letter
 var clickeditem; // for when the user clicks an item;
 
 //variables for the game about to be played
 var randomword; //whatever word is picked to be guesses
 var randomgame; // whatever game is set up;
-var gameletters;v // the specific letters that need to be gueesed.
+var gameletters; // the specific letters that need to be gueesed.
 
 //variable toc check on the result (win or loose)
 
@@ -45,6 +47,7 @@ var result;
 //create a function that runs the game:
 
 function gameStart() {
+    console.log("click")
     randomword= wordlist[Math.floor(Math.random()* wordlist.length)];
     console.log (randomword);
 
@@ -53,7 +56,7 @@ function gameStart() {
     guessesleft=randomgame.length;
     dashes= randomgame.length;
 
-    if(guessesleft>10){
+    if(guessesleft<10){
         guessesleft=9;
     }
     for(let i=0; i<dashes; i++){
@@ -63,6 +66,7 @@ function gameStart() {
     else {
         underscore.push("_");
     }
+    abc();
 }
 //console.log the info of the game:
 console.log(gameletters);
@@ -84,9 +88,9 @@ document.getElementById("losses").textContent =losses;
 
 //to put the pictures and the hints up in this docuemnt and link them to the right word.
 //still missing this part!
-
+};
 letterbuttons=true;
-document.getElementById("letterbuttons")=letterbuttons;
+
 // create function to see the letter buttons with attributes that allow me to
 //modify yhe button in css and appent it to my card-body in html. 
 function abc(){
@@ -177,14 +181,10 @@ function gamecheck(){
 
 //to start the game
 
-document.addEventListener("click", function() {
-    gameStart();
-   document.getElementById("#Startgame")= gameStart; 
-    
-    document.addEventListener("click", choice);
-    
-    
-});
+document.addEventListener("click", gameStart)
+
+
+document.addEventListener("click", choice);
 
 //when click the reset button it will bring the game back to the original position. 
 document.addEventListener("click", function reset() {
@@ -194,12 +194,12 @@ document.addEventListener("click", function reset() {
     gamewon = false;
     letterbuttons = false;
     document.getElementById("#resetgame")= reset;
-    document.querySelector("letterbuttons").innerHTML = "";
-    document.querySelector("wrongletters").innerHTML = "";
+    document.querySelector("letterbuttons").innerHTML = [];
+    document.querySelector("wrongletters").innerHTML = [];
     document.getElementById("wordspaces").textContent = '_ _ _ _ _ _'; 
     document.getElementById("guessesleft").textContent = `Guesses Left: ${guessesLeft}`;
-    document.getElementById("movie-image").src = "";
-    document.getElementById("hints").innerHTML = "";
+    document.getElementById("movie-image").src = [];
+    document.getElementById("hints").innerHTML = [];
     
     
-})};
+})
