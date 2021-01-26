@@ -15,7 +15,7 @@ var hints =[{
 
 ]
 //create variables that will get the Id's from html
-var startGame = document.getElementById("#startgame");
+var startGame = document.querySelector("#startgame");
 
 //create an array with the alphabet letters and variables to generate buttons
 var letters=["A", "B", "C", "D", "F", "G","H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];            
@@ -23,8 +23,8 @@ var letterbuttons=false;
 var gamewon =true;
 //create variables that will be used in the game
 
-var underscore;[] 
-var dashes; //variable to work with the underscore
+var underscore=[] 
+var dashes= document.querySelector("#wordspaces") //variable to work with the underscore
 var guessesleft; // to keep count of how many guesses is there left
 var wins=0; // keep track of score
 var losses=0; // keep track of score
@@ -51,10 +51,13 @@ function gameStart() {
    
     randomword= wordlist[Math.floor(Math.random()* wordlist.length)];
     console.log (randomword);
-
-    // randomgame=wordlist[randomword];
-    gameletters= randomword.split(' ');
-    console.log(gameletters);
+for(var i=0; i<randomword.length; i++){
+    underscore.push("_")
+}
+document.getElementById('wordspaces').textContent = underscore.join(' ');
+    // // randomgame=wordlist[randomword];
+    // gameletters= randomword.split(' ');
+    // console.log(gameletters);
     
     guessesleft=randomword.length;
     console.log(guessesleft)
@@ -64,9 +67,10 @@ function gameStart() {
         guessesleft=9;
     }
     for(let i=0; i<dashes; i++){
-        if(gameletters[i]===" ")
+        if(gameletters[i]===" "){
         underscore.push(letters);
-
+        console.log(letters)
+    }
     else {
         underscore.push("_");
     }
@@ -81,7 +85,7 @@ console.log (underscore);
 // Now I connect  the variables to the HTML file
 
 //allows for spaces between the underscore
-document.getElementById("wordspaces").textContent=underscore.join(' ');
+// document.getElementById("wordspaces").textContent=underscore.join(' ');
 
 //keep the number of guesses left
 document.getElementById("guessesleft").textContent = guessesleft;
@@ -108,6 +112,7 @@ function abc(){
         button.textContent=letters[i];
         letterbuttons.appendChild(button);
         console.log(button);
+        return button
     }
 };
 
@@ -128,14 +133,14 @@ if(!gamewon){
 function choice(letter) {
     var lettersguessed =false; 
 
-    for(let i = 0; i < blanks; i++){
+    for(let i = 0; i < dashes; i++){
         if(gameletters[i] === letter){
             lettersguessed = true;
         }
     }
     if(lettersguessed){
 
-        for (let i = 0; i < blanks; i++){
+        for (let i = 0; i < dashes; i++){
             if (underscores[i] === " "){
                 underscores[i] = letters;
             } else {
@@ -143,7 +148,7 @@ function choice(letter) {
             }
         }
 
-        for(let i = 0; i < blanks; i ++) {
+        for(let i = 0; i < dashes; i ++) {
             if(gameLetters[i] === letters){
                 underscores[i] = letters;
                 document.getElementById("wordspaces").innerHTML = underscores.join(' ');
@@ -186,25 +191,25 @@ function gamecheck(){
 
 //to start the game
 
-document.addEventListener("click", gameStart)
+startGame.addEventListener("click", gameStart)
 
 
 document.addEventListener("click", choice);
 
 //when click the reset button it will bring the game back to the original position. 
-document.addEventListener("click", function reset() {
-    guessesLeft = 0;
-    wins = 0;
-    losses = 0;
-    gamewon = false;
-    letterbuttons = false;
-    document.getElementById("#resetgame")= reset;
-    document.querySelector("letterbuttons").innerHTML = [];
-    document.querySelector("wrongletters").innerHTML = [];
-    document.getElementById("wordspaces").textContent = '_ _ _ _ _ _'; 
-    document.getElementById("guessesleft").textContent = `Guesses Left: ${guessesLeft}`;
-    document.getElementById("movie-image").src = [];
-    document.getElementById("hints").innerHTML = [];
+// document.addEventListener("click", function reset() {
+//     guessesLeft = 0;
+//     wins = 0;
+//     losses = 0;
+//     gamewon = false;
+//     letterbuttons = false;
+//     document.getElementById("#resetgame")= reset;
+//     document.querySelector("letterbuttons").innerHTML = [];
+//     document.querySelector("wrongletters").innerHTML = [];
+//     document.getElementById("wordspaces").textContent = '_ _ _ _ _ _'; 
+//     document.getElementById("guessesleft").textContent = `Guesses Left: ${guessesLeft}`;
+//     document.getElementById("movie-image").src = [];
+//     document.getElementById("hints").innerHTML = [];
     
     
-})
+// })
