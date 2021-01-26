@@ -61,7 +61,8 @@ document.getElementById('wordspaces').textContent = underscore.join(' ');
     
     guessesleft=randomword.length;
     console.log(guessesleft)
-    dashes= randomword.length;
+    document.getElementById('guesses-left').textContent= `Guesses Left: ${guessesleft}`
+    // dashes= randomword.length;
 
     if(guessesleft<10){
         guessesleft=9;
