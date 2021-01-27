@@ -24,21 +24,21 @@ var gamewon =true;
 //create variables that will be used in the game
 
 var underscore=[] 
-var dashes= document.querySelector("#wordspaces") //variable to work with the underscore
+var dashes; //variable to work with the underscore
 var guessesleft; // to keep count of how many guesses is there left
 var wins=0; // keep track of score
 var losses=0; // keep track of score
 var lettersguessed; // keep track of letters that user gor right
-var letterbuttons= document.getElementById("letterbuttons"); // to set up the alphabet buttons
+var letterbuttons;  // to set up the alphabet buttons
 var chooseletter; // for when the user chooses a particular letter
 var clickeditem; // for when the user clicks an item;
 
 //variables for the game about to be played
 var randomword; //whatever word is picked to be guesses
 var randomgame; // whatever game is set up;
-var gameletters; // the specific letters that need to be gueesed.
+var gameletters; // the specific letters that need to be guessed.
 
-//variable toc check on the result (win or loose)
+//variable to check on the result (win or loose)
 
 var result;
 
@@ -48,69 +48,70 @@ var result;
 
 function gameStart() {
     console.log("click")
-   
+   // get a random word from the wordlist array
     randomword= wordlist[Math.floor(Math.random()* wordlist.length)];
     console.log (randomword);
+    //iterate through the randowm word to define how many underscores we need to display on page
 for(var i=0; i<randomword.length; i++){
+    // push methd to put that number of underscore in the array
     underscore.push("_")
 }
+// get the id so we can display it on html
 document.getElementById('wordspaces').textContent = underscore.join(' ');
-    // // randomgame=wordlist[randomword];
-    // gameletters= randomword.split(' ');
-    // console.log(gameletters);
     
+    // the number of guesses is the same as the word being played
     guessesleft=randomword.length;
     console.log(guessesleft)
+    // display that number of guesses on html
     document.getElementById('guesses-left').textContent= `Guesses Left: ${guessesleft}`
-    // dashes= randomword.length;
-
-    if(guessesleft<10){
-        guessesleft=9;
-    }
-    for(let i=0; i<dashes; i++){
-        if(gameletters[i]===" "){
-        underscore.push(letters);
-        console.log(letters)
-    }
-    else {
-        underscore.push("_");
-    }
-    console.log(gameletters);
-console.log (underscore);
-    abc();
+   
+    //display the letters the user can use
+for(var i=0; i<letters.length;i++){
+    var button = document.createElement("button");
+    // button.setAttribute("data-letter", letters[i]);
+    button.setAttribute("id", "letterbutton");
+    button.classList.add("button","buttonspace");
+    button.textContent=letters[i];
+    document.getElementById("letterbuttons").append(button)
 }
+
+//     if(guessesleft<10){
+//         guessesleft=9;
+//     }
+//     for(let i=0; i<dashes; i++){
+//         if(gameletters[i]===" "){
+//         underscore.push(letters);
+//         console.log(letters)
+//     }
+//     else {
+//         underscore.push("_");
+//     }
+//     console.log(gameletters);
+// console.log (underscore);
+//     abc();
+// }
 //console.log the info of the game:
-
-
-
-// Now I connect  the variables to the HTML file
-
-//allows for spaces between the underscore
-// document.getElementById("wordspaces").textContent=underscore.join(' ');
-
-//keep the number of guesses left
-document.getElementById("guessesleft").textContent = guessesleft;
 
 //the wins and losses
 
-document.getElementById("wins").textContent = wins;
-document.getElementById("losses").textContent =losses;
+document.getElementById("wins").textContent = `wins: ${wins}`;
+document.getElementById("losses").textContent =`losses: ${losses}`;
 
-//to put the pictures and the hints up in this docuemnt and link them to the right word.
+//to put the pictures and the hints up in this document and link them to the right word.
 //still missing this part!
 };
 letterbuttons=true;
 
 // create function to see the letter buttons with attributes that allow me to
-//modify yhe button in css and appent it to my card-body in html. 
+//modify the button in css and append it to my card-body in html. 
 function abc(){
 
     for(let i=0; i<letters.length; i++){
-        var button = document.createElement("button");
-        button.setAttribute("data-letter", letters[i]);
-        button.setAttribute("id", "letterbutton");
-        button.classList.add("button","buttonspace");
-        button.textContent=letters[i];
+        
+        
+       
+      
+        
         letterbuttons.appendChild(button);
         console.log(button);
         return button
@@ -158,8 +159,8 @@ function choice(letter) {
         }
     }
         else {
-            guessesLeft--;
-            document.getElementById("guessesleft").textContent = `Guesses Left: ${guessesLeft}`;
+            guessesleft--;
+            document.getElementById("guessesleft").textContent = `Guesses Left: ${guessesleft}`;
         }
         gamecheck();
     
