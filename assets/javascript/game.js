@@ -31,7 +31,7 @@ var losses = 0; // keep track of score
 var lettersguessed; // keep track of letters that user gor right
 var chooseletter=[] // for when the user chooses a particular letter
 var clickeditem; // for when the user clicks an item;
-
+var j=0;
 //variables for the game about to be played
 var randomword; //whatever word is picked to be guesses
 var gameletters; // the specific letters that need to be guessed.
@@ -39,6 +39,9 @@ var gameletters; // the specific letters that need to be guessed.
 //variable to check on the result (win or loose)
 
 var result;
+
+
+
 
 //******************************** THE MAIN HANGMAN GAME ****************************************
 
@@ -66,7 +69,7 @@ function gameStart() {
     //display the letters the user can use
     for (var i = 0; i < letters.length; i++) {
         var button = document.createElement("button");
-        button.setAttribute("data-letter", letters[i]);
+        button.setAttribute("name", letters[i]);
         button.setAttribute("id", "letterbutton");
         button.classList.add("button", "buttonspace");
         button.textContent = letters[i];
@@ -172,19 +175,20 @@ startGame.addEventListener("click", gameStart)
 
 document.addEventListener('click', function (e) {
     console.log("click")
+    let thisLetter;
     if (e.target && e.target.id == 'letterbutton') {
-        var letter= document.getElementById("letterbutton").getAttribute("data-letter", letters)
-        // var letter = letterbutton.getAttribute("data-letter")
-      
-        chooseletter.push(letter);
-        // console.log(this.letters)
-        console.log(chooseletter)
-        console.log(letter);
+        thisLetter=(e.target.name)
+        console.log(thisLetter)
+        chooseletter.push(thisLetter)
+        console.log(chooseletter,"letter array")
+      }
+       
+     
         
     
        
         
-    }
+    
 });
 
 
